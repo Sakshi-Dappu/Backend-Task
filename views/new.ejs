@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property Form</title>
+    <style>
+      .error {
+        color: red;
+      } 
+    </style>
+  </head>
+  <body>
+    <h2>Property Form</h2>
+    
+    
+    <form onsubmit="return validateForm()" method="post" action="/properties">
+
+      <label for="location">Location:</label><br />
+      <input type="text" id="location" name="location" /><br />
+      <span id="locationError" class="error"></span><br />
+
+      <label for="budget">Budget: $</label><br />
+      <input type="number" id="budget" name="budget" /><br />
+      <span id="budgetError" class="error"></span><br />
+
+      <label for="size" id="size" name="size">Size:</label><br />
+    
+      <select name="size" required>
+        <option value="S" <%= property.size === 'S' ? 'selected' : '' %>>Small</option>
+        <option value="M" <%= property.size === 'M' ? 'selected' : '' %>>Medium</option>
+        <option value="L" <%= property.size === 'L' ? 'selected' : '' %>>Large</option>
+    </select><br />
+    <br /><br /><br /><br /><br /><br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      function validateForm() {
+        let location = document.getElementById("location").value;
+        let budget = document.getElementById("budget").value;
+
+        let locationError = document.getElementById("locationError");
+        let budgetError = document.getElementById("budgetError");
+
+        locationError.textContent = "";
+        budgetError.textContent = "";
+
+        if (location === "") {
+          locationError.textContent = "Location cannot be empty";
+          return false;
+        }
+
+        if (isNaN(parseInt(budget)) || parseInt(budget) <= 0) {
+          budgetError.textContent = "Budget must be a positive integer";
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

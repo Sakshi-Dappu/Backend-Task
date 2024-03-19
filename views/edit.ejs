@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Details</title>
+    <script>
+        function validateForm() {
+            var budget = document.getElementById("budget").value;
+            if (parseInt(budget) <= 0) {
+                alert("Budget must be greater than zero");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form method="post" action="/properties/<%= property.id %>?_method=PATCH" onsubmit="return validateForm()">
+
+        <h1>Edit Details</h1>
+        <h3>Property id: <%=  property.id %></h3>
+        
+        
+        LOCATION: <textarea name="location" required><%= property.location %></textarea><br />
+        BUDGET: <textarea id="budget" name="budget" required><%= property.budget %></textarea><br />
+        SIZE: 
+        <select name="size" required>
+            <option value="S" <%= property.size === 'S' ? 'selected' : '' %>>Small</option>
+            <option value="M" <%= property.size === 'M' ? 'selected' : '' %>>Medium</option>
+            <option value="L" <%= property.size === 'L' ? 'selected' : '' %>>Large</option>
+        </select><br />
+        <br /><br /><br /><br /><br />
+      
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+

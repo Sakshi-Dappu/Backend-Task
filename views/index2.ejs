@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Roomate Table</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+    <h1>Roomate Tables</h1> <br /><br />
+    <button><a href="http://localhost:8080/roommates/new">Add Roommate</a></button>
+    <button id="propertyButton">Check Property Data</button>
+
+<% for(roommate of roommates)  { %>
+<div class="data"> 
+  
+    <h3>Roommate id: <%= roommate.id %></h3>
+    <h3>NAME :<%= roommate.name %></h3>
+    <h3> AGE : <%= roommate.age %></h3>
+    <h3>GENDER : <%= roommate.gender %></h3>
+    <h3>Veg_noveg : <%= roommate.Veg_nonveg %></h3>
+    
+    <button><a href="http://localhost:8080/roommates/<%=roommate.id %>">View in Detail</a></button> 
+    <button><a href="http://localhost:8080/roommates/<%=roommate.id %>/edit">Edit Details</a></button> 
+   
+    <form method="post" action="/roommates/<%= roommate.id %>?_method=DELETE">
+        <button type="submit">Delete</button>
+      </form>
+      
+<% } %>
+<br />
+<br />
+
+</body>
+<script>
+    const propertyButton = document.getElementById("propertyButton");
+propertyButton.addEventListener("click", function() {
+    window.location.href = "http://localhost:8080/properties";
+});
+   </script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Property Table</title>
+    <link rel="stylesheet" href="/style.css" />
+   
+</head>
+<body>
+    <h1>Property Tables</h1> <br /><br />
+    <button><a href="http://localhost:8080/properties/new">Add Property</a></button>
+    <button id="roommatesButton">Check Roommates Data</button>
+    
+    
+<% for(property of properties)  { %>
+<div class="data">
+  
+    <h3>Property id: <%= property.id %></h3>
+
+    <h3>LOCATION : <%= property.location %></h3>
+    <h3>BUDGET: $<%= property.budget %></h3>
+    <h3>SIZE : <%= property.size %></h3> <br/>
+    <button><a href="http://localhost:8080/properties/<%=property.id %>">View in Detail</a></button> 
+    <button><a href="http://localhost:8080/properties/<%=property.id %>/edit">Edit Details</a></button> 
+   
+    <form method="post" action="/properties/<%= property.id %>?_method=DELETE">
+        <button type="submit">Delete</button>
+      </form>
+      
+<% } %>
+<br />
+<br />
+
+</body>
+<script>
+    const roommatesButton = document.getElementById("roommatesButton");
+
+
+roommatesButton.addEventListener("click", function() {
+   
+   window.location.href = "http://localhost:8080/roommates";
+});
+   </script>
+</html>
+

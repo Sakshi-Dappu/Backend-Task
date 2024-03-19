@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roommate Form</title>
+    <script>
+      function validateForm() {
+          var name = document.getElementById("name").value;
+          var age = document.getElementById("age").value;
+          var gender = document.getElementById("gender").value;
+          var vegNonVeg = document.getElementById("Veg_nonveg").value;
+
+          // Validate name
+          if (name.trim() === "") {
+              alert("Roommate's name cannot be empty");
+              return false;
+          }
+
+          // Validate age
+          if (age < 18 || age > 60) {
+              alert("Roommate's age should be between 18 and 60");
+              return false;
+          }
+
+          // Validate gender
+          if (gender !== "Male" && gender !== "Female") {
+              alert("Gender should be either Male or Female");
+              return false;
+          }
+
+          // Validate Veg/Nonveg
+          if (vegNonVeg !== "Veg" && vegNonVeg !== "Nonveg") {
+              alert("Veg/Nonveg should be a valid option");
+              return false;
+          }
+
+          return true;
+      }
+  </script>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Roommate Form</h2>
+    <h3>Property id: <%=   roommate.Property_id %></h3>
+   <h3> roommate id: <%=  roommate.id %></h3>
+    <form onsubmit="return validateForm()" method="post" action="/roommates">
+      <label for="name"  >Name:</label><br />
+      <input type="text"required id="name" name="name" /><br />
+      <span id="nameError" class="error"></span><br />
+
+      <label for="age" >Age:</label><br />
+      <input type="number"required id="age" name="age" min="18" max="60" /><br />
+      <span id="ageError" class="error"></span><br />
+
+      <label for="gender" >Gender:</label><br />
+
+      <select id="gender" name="gender" required>
+        <option value="Male" <%= roommate.gender === 'Male' ? 'selected' : '' %>>Male</option>
+        <option value="Female" <%= roommate.gender === 'Female' ? 'selected' : '' %>>Female</option>
+    </select><br />
+
+      <label for="vegNonveg" >Veg/Nonveg:</label><br />
+      <select id="Veg_nonveg" name="Veg_nonveg" required>
+        <option value="Veg" <%= roommate.Veg_nonveg === 'Veg' ? 'selected' : '' %>>Veg</option>
+        <option value="Nonveg" <%= roommate.Veg_nonveg === 'Nonveg' ? 'selected' : '' %>>Nonveg</option>
+    </select><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      function validateForm() {
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+        let gender = document.getElementById("gender").value;
+        let vegNonveg = document.getElementById("vegNonveg").value;
+
+        let nameError = document.getElementById("nameError");
+        let ageError = document.getElementById("ageError");
+
+        nameError.textContent = "";
+        ageError.textContent = "";
+        locationError.textContent = "";
+        budgetError.textContent = ""; 
+
+        if (name === "") {
+          nameError.textContent = "Name cannot be empty";
+          return false;
+        }
+
+        if (age < 18 || age > 60) {
+          ageError.textContent = "Age must be between 18 and 60";
+          return false;
+        }
+
+        if (gender !== "Male" && gender !== "Female") {
+          return false;
+        }
+
+        if (vegNonveg !== "Veg" && vegNonveg !== "Nonveg") {
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
