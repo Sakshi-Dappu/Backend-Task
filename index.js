@@ -55,7 +55,7 @@ app.post("/properties", (req, res) => {
 
 app.get("/properties/:id", (req, res) => {
   let { id } = req.params;
-property = properties.find((p) => id === p.id);
+  property = properties.find((p) => id === p.id);
   console.log(property);
   res.render("show.ejs", { property });
 });
@@ -196,9 +196,7 @@ app.delete("/roommates/:id", (req, res) => {
   res.redirect("/roommates");
   console.log("deleted");
 });
- 
+
 app.get("/", (req, res) => {
-  
-  res.render("/roommates");
-  
+  res.render("index2.ejs" , { roommates });
 });
