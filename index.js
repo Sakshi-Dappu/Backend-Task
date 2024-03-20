@@ -196,3 +196,9 @@ app.delete("/roommates/:id", (req, res) => {
   res.redirect("/roommates");
   console.log("deleted");
 });
+ 
+app.get("/", (req, res) => {
+  
+  res.render("/roommates");
+  
+});
