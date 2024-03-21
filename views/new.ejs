@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Property Form</title>
-    <style>
-      .error {
-        color: red;
-      } 
-    </style>
+    <style href="style.css" rel="stylesheet"></style>
   </head>
   <body>
     <h2>Property Form</h2>
@@ -36,29 +32,6 @@
       <button type="submit">Submit</button>
     </form>
 
-    <script>
-      function validateForm() {
-        let location = document.getElementById("location").value;
-        let budget = document.getElementById("budget").value;
-
-        let locationError = document.getElementById("locationError");
-        let budgetError = document.getElementById("budgetError");
-
-        locationError.textContent = "";
-        budgetError.textContent = "";
-
-        if (location === "") {
-          locationError.textContent = "Location cannot be empty";
-          return false;
-        }
-
-        if (isNaN(parseInt(budget)) || parseInt(budget) <= 0) {
-          budgetError.textContent = "Budget must be a positive integer";
-          return false;
-        }
-
-        return true;
-      }
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>

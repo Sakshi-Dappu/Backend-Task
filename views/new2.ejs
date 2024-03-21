@@ -4,45 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roommate Form</title>
-    <script>
-      function validateForm() {
-          var name = document.getElementById("name").value;
-          var age = document.getElementById("age").value;
-          var gender = document.getElementById("gender").value;
-          var vegNonVeg = document.getElementById("Veg_nonveg").value;
-
-          // Validate name
-          if (name.trim() === "") {
-              alert("Roommate's name cannot be empty");
-              return false;
-          }
-
-          // Validate age
-          if (age < 18 || age > 60) {
-              alert("Roommate's age should be between 18 and 60");
-              return false;
-          }
-
-          // Validate gender
-          if (gender !== "Male" && gender !== "Female") {
-              alert("Gender should be either Male or Female");
-              return false;
-          }
-
-          // Validate Veg/Nonveg
-          if (vegNonVeg !== "Veg" && vegNonVeg !== "Nonveg") {
-              alert("Veg/Nonveg should be a valid option");
-              return false;
-          }
-
-          return true;
-      }
-  </script>
-    <style>
-      .error {
-        color: red;
-      }
-    </style>
+    <script src="app.js"></script>
+    <style href="style.css" rel="stylesheet"></style>
   </head>
   <body>
     <h2>Roommate Form</h2>

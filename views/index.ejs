@@ -17,30 +17,19 @@
 <div class="data">
   
     <h3>Property id: <%= property.id %></h3>
-
     <h3>LOCATION : <%= property.location %></h3>
     <h3>BUDGET: $<%= property.budget %></h3>
     <h3>SIZE : <%= property.size %></h3> <br/>
     <button><a href="http://localhost:8080/properties/<%=property.id %>">View in Detail</a></button> 
     <button><a href="http://localhost:8080/properties/<%=property.id %>/edit">Edit Details</a></button> 
-   
-    <form method="post" action="/properties/<%= property.id %>?_method=DELETE">
+   <form method="post" action="/properties/<%= property.id %>?_method=DELETE">
         <button type="submit">Delete</button>
       </form>
-      
-<% } %>
-<br />
-<br />
+      <% } %>
+      <br />
+      <br />
 
 </body>
-<script>
-    const roommatesButton = document.getElementById("roommatesButton");
-
-
-roommatesButton.addEventListener("click", function() {
-   
-   window.location.href = "http://localhost:8080/roommates";
-});
-   </script>
+<script src="app.js"></script>
 </html>
 

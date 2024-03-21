@@ -6,20 +6,19 @@
     <title>Edit Details</title>
   </head>
   <body>
-   
-        <form method="post" action="/roommates/<%= roommate.id %>?_method=PATCH">
+    <form method="post" action="/roommates/<%= roommate.id %>?_method=PATCH">
+      <h1>Edit Details</h1>
+      <h3>Roommate id: <%= roommate.id %></h3>
+      <h3>Property id: <%= roommate.Property_id %></h3>
+      NAME : <textarea name="name"><%=  roommate.name %></textarea><br />
+      AGE : <textarea name="age"><%=  roommate.age %></textarea><br />
+      GENDER : <textarea name="gender"><%=  roommate.gender %></textarea> <br />
+      Veg_noveg :<textarea name="Veg_nonveg">
+ <%=  roommate.Veg_nonveg %></textarea
+      ><br />
 
-    <h1>Edit Details</h1>
-    <h3> Roommate id: <%=  roommate.id %></h3>
-    <h3>Property id: <%=  roommate.Property_id %></h3>
-    NAME : <textarea name="name"><%=  roommate.name %></textarea><br />
-     AGE : <textarea name="age"><%=  roommate.age %></textarea><br />
-GENDER : <textarea name="gender"><%=  roommate.gender %></textarea> <br />
-Veg_noveg :<textarea name="Veg_nonveg"> <%=  roommate.Veg_nonveg %></textarea><br />
+      <br /><br /><br /><br /><br />
 
-<br /><br /><br /><br /><br />
-  
-       
       <button>Submit</button>
     </form>
   </body>
